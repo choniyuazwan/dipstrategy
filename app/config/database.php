@@ -3,8 +3,8 @@
 return array(
     'connection' => 'local',
 
-    'local' => 'mysql://root:@localhost/exassm?charset=utf8',
+    'local' => 'mysql://root:@localhost/exam',
 
-    'server' => 'mysql://localhost:@localhost/?charset=utf8'
+    'server' => 'mysql://root:@localhost/exam'
 );
  

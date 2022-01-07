@@ -130,16 +130,35 @@
                   </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
+              <?php
+              function ruasType($data, $code) {
+                foreach ($data->ruasType as $item) {
+                  if ($code == $item->code) {
+                    return $item->name;
+                  }
+                }
+              }
+              function ruasTarif($data, $code, $type) {
+                foreach ($data->ruasTarif as $item) {
+                  if ($code == $item->code && $type == $item->type) {
+                    return $item->price;
+                  }
+                }
+              }
+              ?>
+              <?php foreach ($data->ruasJalan as $key => $value) :?>
+                  <tr>
+                      <td><?= $value->id ?></td>
+                      <td><?= $value->name ?></td>
+                      <td><?= ruasType($data, $value->type) ?></td>
+                      <td><?= ruasTarif($data, $value->type, "gol1") ?></td>
+                      <td><?= ruasTarif($data, $value->type, "gol2") ?></td>
+                      <td><?= ruasTarif($data, $value->type, "gol3") ?></td>
+                      <td><?= ruasTarif($data, $value->type, "gol4") ?></td>
+                      <td><?= ruasTarif($data, $value->type, "gol5") ?></td>
+                  </tr>
+              <?php endforeach;?>
+              
               </tbody>
             </table>
           </div>

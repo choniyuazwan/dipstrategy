@@ -35,12 +35,12 @@
         <div class="row col-lg-12">
           <?php
             try {
-              $DbConnected = Project\Model\Setting\Setting::find_by_setting_key("database_connecteds");
+              $DbConnected = Project\Model\Setting\Setting::find_by_setting_key("database_connected");
               if($DbConnected){
                 if($DbConnected->setting_value){
                   ?>
                   <div>
-                    <p><?= $DbConnected->setting_values?></p>
+                    <p><?= $DbConnected->setting_value?></p>
                     <br />
                     <p>
                       <a href="<?=DOMAIN?>step2">Next</a>
